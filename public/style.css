@@ -1,0 +1,608 @@
+/* reset */
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+button {
+  outline: none;
+}
+
+input::placeholder {
+  color: rgb(183, 183, 183);
+}
+
+/* style*/
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: no-repeat url("https://bing.ioliu.cn/v1/rand") 100%;
+  font-family: PingFang SC, Microsoft Yahei, Helvetica, Arial, sans-serif;
+}
+
+.globalHeader {
+  position: relative;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  max-width: 700px;
+  margin: 120px auto 0;
+}
+
+.searchClass {
+  position: relative;
+  top: 110px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchClass ul {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.searchClass > ul > li {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 60px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.searchClass > ul > li:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.searchClass > ul > li.active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.searchForm > input {
+  width: 100%;
+  padding: 0 10px;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  height: 64px;
+  border-radius: 0 32px 32px 0;
+}
+
+.searchForm > div {
+  white-space: nowrap;
+  padding: 0 8px 0 24px;
+  border: none;
+  background: white;
+  color: black;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  border-radius: 32px 0 0 32px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.searchForm > div:hover {
+  background: rgb(238, 238, 238);
+  overflow: hidden;
+}
+
+.searchForm > div .icon:nth-child(1) {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.searchForm > div .icon:nth-child(2) {
+  fill: #dddddd;
+  width: 15px;
+  height: 15px;
+}
+
+.others {
+  z-index: 1;
+  position: absolute;
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.others.active {
+  visibility: visible;
+}
+
+.others ul {
+  max-width: 68px;
+  display: flex;
+  flex-direction: column;
+}
+
+.others li {
+  max-width: 68px;
+  max-height: 68px;
+  margin-bottom: 1px;
+  box-shadow: 0 1px #dddddd;
+  overflow: auto;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.others li div:hover {
+  background: rgb(238, 238, 238);
+}
+
+.others li:nth-child(1) {
+  border-radius: 20px 20px 0 0;
+}
+
+.others li:nth-child(4) {
+  box-shadow: none;
+  border-radius: 0 0 20px 20px;
+}
+
+.others li div {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.others li svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.others li span {
+  font-size: 14px;
+}
+
+.globalMain {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.siteList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.siteList > li {
+  margin-bottom: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.siteList .site {
+  background: green;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  max-width: 120px;
+  transition: all 0.3s;
+}
+
+.siteList .site:hover {
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.1);
+}
+
+.siteList .site.active {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-name: moving;
+}
+
+.siteList .site.active:hover:after {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 100%, 0.5);
+}
+
+@keyframes moving {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(-2deg) scale(1);
+  }
+  60% {
+    transform: rotate(0deg) scale(1);
+  }
+  80% {
+    transform: rotate(2deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.siteList .site > .logo {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-family: PingFang SC, Microsoft Yahei, Helvetica, Arial, sans-serif;
+}
+
+.siteList .site .logo text {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.siteList .logo .icon {
+  transition: all 0.2s;
+  text-align: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  fill: black;
+}
+
+.siteList .site:hover .logo .icon.active {
+  opacity: 1;
+}
+
+.siteList .link {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 12px;
+  max-width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.siteList .site .close {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  visibility: hidden;
+  padding: 5px;
+}
+
+.siteList .site .close.active {
+  visibility: visible;
+}
+
+.siteList .site .close .icon {
+  width: 10px;
+  height: 10px;
+}
+
+.flower {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flower > .changeImg {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  margin-bottom: -5px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.flower img {
+  width: 100%;
+  height: 100%;
+}
+
+.flower > div:nth-child(2) {
+  width: 5px;
+  height: 30px;
+  background: white;
+}
+
+#addList {
+  position: absolute;
+  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+#addList .icon {
+  width: 24px;
+  height: 24px;
+}
+
+#addList:hover {
+  transform: scale(1.1);
+}
+
+.addContent,
+.reviseContent {
+  position: absolute;
+  top: 0;
+  right: -420px;
+  background: white;
+  max-width: 420px;
+  transition: all 0.4s;
+}
+
+.addContent.active,
+.reviseContent.active {
+  transform: translateX(-420px);
+}
+
+.addContent header,
+.reviseContent header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 169px;
+}
+
+.addContent header .icon:nth-child(1),
+.reviseContent header .icon:nth-child(1) {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.addContent header .closeAddContent,
+.reviseContent header .closeAddContent {
+  position: absolute;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  color: #b6b6b6;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.addContent header .closeAddContent:hover,
+.reviseContent header .closeAddContent:hover {
+  color: #808080;
+}
+
+.addContent header div,
+.reviseContent header div {
+  font-size: 20px;
+}
+
+.addContent main,
+.reviseContent main {
+  background: rgb(237, 237, 237);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addWrap {
+  flex-grow: 1;
+  display: flex;
+  background: white;
+  padding: 36px 20px;
+  border-radius: 4px;
+}
+
+.addWrap .colorWrap {
+  margin-right: 20px;
+}
+
+.addWrap .color,
+.addWrap .nowColor {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgb(223, 95, 71);
+}
+
+.webContent {
+  flex-grow: 1;
+}
+
+.webContent > ul div {
+  color: #5c5c5c;
+  padding: 13px 0;
+  font-size: 12px;
+}
+
+.webContent input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.7;
+  border-bottom: 1px solid #b6b6b6;
+  padding-bottom: 6px;
+}
+
+.colorList,
+.nowColorList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colorList > li,
+.nowColorList > li {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.colorList > li:hover,
+.nowColorList > li:hover {
+  transition: all 0.2s;
+  transform: scale(1.1);
+}
+
+.colorList > li.red,
+.nowColorList > li.red,
+.siteList .site.red,
+.addWrap .color.red,
+.addWrap .nowColor.red {
+  background: rgb(233, 95, 71);
+}
+
+.colorList > li.orange,
+.nowColorList > li.orange,
+.siteList .site.orange,
+.addWrap .color.orange,
+.addWrap .nowColor.orange {
+  background: rgb(239, 167, 56);
+}
+
+.colorList > li.yellow,
+.nowColorList > li.yellow,
+.siteList .site.yellow,
+.addWrap .color.yellow,
+.addWrap .nowColor.yellow {
+  background: rgb(250, 236, 99);
+}
+
+.colorList > li.green,
+.nowColorList > li.green,
+.siteList .site.green,
+.addWrap .color.green,
+.addWrap .nowColor.green {
+  background: #73b364;
+}
+
+.colorList > li.blue,
+.nowColorList > li.blue,
+.siteList .site.blue,
+.addWrap .color.blue,
+.addWrap .nowColor.blue {
+  background: rgb(96, 192, 241);
+}
+
+.colorList > li.sky,
+.nowColorList > li.sky,
+.siteList .site.sky,
+.addWrap .color.sky,
+.addWrap .nowColor.sky {
+  background: rgb(87, 160, 238);
+}
+
+.colorList > li.violet,
+.nowColorList > li.violet,
+.siteList .site.violet,
+.addWrap .color.violet,
+.addWrap .nowColor.violet {
+  background: rgb(108, 76, 185);
+}
+
+.colorList > li.transparent,
+.nowColorList > li.transparent,
+.addWrap .color.transparent,
+.addWrap .nowColor.transparent {
+  background-color: #ddd;
+  background-image: linear-gradient(
+      45deg,
+      #fff 25%,
+      transparent 0,
+      transparent 75%,
+      #fff 0
+    ),
+    linear-gradient(45deg, #fff 25%, transparent 0, transparent 75%, #fff 0);
+  background-position: 0 0, 5px 5px;
+  background-size: 10px 10px;
+}
+
+.siteList .site.transparent {
+  background-color: transparent;
+}
+
+.webContent > div {
+  margin-top: 35px;
+}
+
+.webContent .finish button {
+  color: #2ecc71;
+  border: 1px solid #7fe3ae;
+  width: 220px;
+  padding: 9px 18px;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.webContent .finish button:hover {
+  background-color: #e5fae7;
+  border-color: rgb(127, 227, 174);
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Alive</title>
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+      .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="globalHeader">
+      <div class="searchClass">
+        <ul class="searchUl">
+          <li class="kindWeb active">网页</li>
+          <li class="kindImg">图片</li>
+          <li class="kindNews">新闻</li>
+          <li class="kindAvi">视频</li>
+          <li class="kindMap">地图</li>
+        </ul>
+      </div>
+      <form class="searchForm" method="get" autocomplete="off">
+        <input
+          id="search"
+          name="wd"
+          type="search"
+          placeholder="输入并搜索..."
+        />
+        <div class="changeSearch">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-baidu"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-f111"></use>
+          </svg>
+        </div>
+      </form>
+      <div class="others">
+        <ul>
+          <li class="baidu">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-baidu"></use>
+              </svg>
+              <span>百度</span>
+            </div>
+          </li>
+          <li class="google">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-google"></use>
+              </svg>
+              <span>谷歌</span>
+            </div>
+          </li>
+          <li class="bing">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-bing"></use>
+              </svg>
+              <span>必应</span>
+            </div>
+          </li>
+          <li class="sogou">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-sogou"></use>
+              </svg>
+              <span>搜狗</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="globalMain">
+      <ul class="siteList"></ul>
+    </main>
+    <div class="flower">
+      <div class="changeImg">
+        <img src="img/windmill.9f4e6cb.png" alt="" />
+      </div>
+      <div></div>
+    </div>
+    <div id="addList">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-addfriends"></use>
+      </svg>
+    </div>
+    <div class="addContent">
+      <header>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-zu57"></use>
+        </svg>
+        <div>添加</div>
+        <svg class="icon closeAddContent" aria-hidden="true">
+          <use xlink:href="#icon-delete"></use>
+        </svg>
+      </header>
+      <main>
+        <div class="addWrap">
+          <div class="colorWrap">
+            <div class="color"></div>
+          </div>
+          <div class="webContent">
+            <ul>
+              <li>
+                <div>网站地址</div>
+                <input id="addWebUrl" type="text" placeholder="http://" />
+              </li>
+              <li>
+                <div>网站名称</div>
+                <input id="addWebName" type="text" placeholder="网站名称" />
+              </li>
+              <li>
+                <div>显示名称</div>
+                <input id="addDisName" type="text" placeholder="显示名称" />
+              </li>
+              <li>
+                <div>颜色</div>
+                <ul class="colorList">
+                  <li class="red"></li>
+                  <li class="orange"></li>
+                  <li class="yellow"></li>
+                  <li class="green"></li>
+                  <li class="blue"></li>
+                  <li class="sky"></li>
+                  <li class="violet"></li>
+                  <li class="transparent"></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="finish">
+              <button id="addRefer">
+                <div>确定</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="reviseContent">
+      <header>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-bianji"></use>
+        </svg>
+        <div>编辑</div>
+        <svg class="icon closeAddContent" aria-hidden="true">
+          <use xlink:href="#icon-delete"></use>
+        </svg>
+      </header>
+      <main>
+        <div class="addWrap">
+          <div class="colorWrap">
+            <div class="nowColor"></div>
+          </div>
+          <div class="webContent">
+            <ul>
+              <li>
+                <div>网站地址</div>
+                <input id="webUrl" type="text" placeholder="http://" />
+              </li>
+              <li>
+                <div>网站名称</div>
+                <input id="webName" type="text" placeholder="网站名称" />
+              </li>
+              <li>
+                <div>显示名称</div>
+                <input id="disName" type="text" placeholder="显示名称" />
+              </li>
+              <li>
+                <div>颜色</div>
+                <ul class="nowColorList">
+                  <li class="red"></li>
+                  <li class="orange"></li>
+                  <li class="yellow"></li>
+                  <li class="green"></li>
+                  <li class="blue"></li>
+                  <li class="sky"></li>
+                  <li class="violet"></li>
+                  <li class="transparent"></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="finish">
+              <button id="change">
+                <div>确定</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="//at.alicdn.com/t/font_2203002_yifa5cirno.js"></script>
+    <script src="search.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
