@@ -301,6 +301,7 @@ siteList.addEventListener("click", (e) => {
     nowWebName.value = hashMap[m].webName;
     let className = hashMap[m].backColor;
     nowColor.className = `color ${className}`;
+    nowBackColor = className;
   }
 });
 on("click", nowColorList, "li", (t) => {
