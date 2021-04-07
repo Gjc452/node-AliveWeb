@@ -37,7 +37,7 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  background: no-repeat url("https://bing.mcloc.cn/api?day=0") 100%;
+  background: no-repeat url("https://api.dujin.org/bing/1920.php") 100%;
   font-family: PingFang SC, Microsoft Yahei, Helvetica, Arial, sans-serif;
 }
 
